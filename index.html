@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Gasolineras Cercanas</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+<body>
+
+    <div class="contenedor">
+
+        <h1>Gasolineras Cercanas</h1>
+
+        <p class="descripcion">
+            Aplicación para consultar gasolineras cercanas utilizando la API REST del Gobierno de España.
+        </p>
+
+        <div class="menu">
+
+            <button class="tab activo" data-vista="cercanas">
+                Cercanas
+            </button>
+
+            <button class="tab" data-vista="ccaa">
+                Por comunidad
+            </button>
+
+            <button class="tab" data-vista="maritimos">
+                Postes marítimos
+            </button>
+
+            <button class="tab" data-vista="historico">
+                Precios por día
+            </button>
+
+        </div>
+
+        <section id="vista-cercanas" class="vista activa">
+
+            <div class="selector">
+
+                <label for="carburante">
+                    Tipo de carburante:
+                </label>
+
+                <select id="carburante">
+
+                    <option value="Precio Gasolina 95 E5">
+                        Gasolina 95 E5
+                    </option>
+
+                    <option value="Precio Gasolina 98 E5">
+                        Gasolina 98 E5
+                    </option>
+
+                    <option value="Precio Gasoleo A">
+                        Gasóleo A
+                    </option>
+
+                    <option value="Precio Gasoleo Premium">
+                        Gasóleo Premium
+                    </option>
+
+                    <option value="Precio Gases licuados del petróleo">
+                        GLP
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="botones">
+
+                <button id="btnUbicacion">
+                    <i class="fa-solid fa-location-crosshairs"></i>
+                    Usar mi ubicación
+                </button>
+
+            </div>
+
+        </section>
+
+        <section id="vista-ccaa" class="vista">
+
+            <div class="selector">
+
+                <label for="ccaa">
+                    Comunidad autónoma:
+                </label>
+
+                <select id="ccaa">
+
+                    <option value="13">Madrid</option>
+                    <option value="01">Andalucía</option>
+                    <option value="02">Aragón</option>
+                    <option value="03">Asturias</option>
+                    <option value="04">Baleares</option>
+                    <option value="05">Canarias</option>
+                    <option value="06">Cantabria</option>
+                    <option value="07">Castilla-La Mancha</option>
+                    <option value="08">Castilla y León</option>
+                    <option value="09">Cataluña</option>
+                    <option value="10">Comunidad Valenciana</option>
+                    <option value="11">Extremadura</option>
+                    <option value="12">Galicia</option>
+                    <option value="14">Murcia</option>
+                    <option value="15">Navarra</option>
+                    <option value="16">País Vasco</option>
+                    <option value="17">La Rioja</option>
+                    <option value="18">Ceuta</option>
+                    <option value="19">Melilla</option>
+
+                </select>
+
+            </div>
+
+            <div class="botones">
+
+                <button id="btnCCAA">
+                    <i class="fa-solid fa-map"></i>
+                    Buscar estaciones
+                </button>
+
+            </div>
+
+        </section>
+
+        <section id="vista-maritimos" class="vista">
+
+            <div class="selector">
+
+                <label for="provinciaMaritima">
+                    Provincia:
+                </label>
+
+                <select id="provinciaMaritima">
+
+                    <option value="08">Barcelona</option>
+                    <option value="28">Madrid</option>
+                    <option value="03">Alicante</option>
+                    <option value="04">Almería</option>
+                    <option value="11">Cádiz</option>
+                    <option value="12">Castellón</option>
+                    <option value="15">A Coruña</option>
+                    <option value="17">Girona</option>
+                    <option value="18">Granada</option>
+                    <option value="21">Huelva</option>
+                    <option value="30">Murcia</option>
+                    <option value="35">Las Palmas</option>
+                    <option value="36">Pontevedra</option>
+                    <option value="38">Santa Cruz de Tenerife</option>
+                    <option value="39">Cantabria</option>
+                    <option value="43">Tarragona</option>
+                    <option value="46">Valencia</option>
+                    <option value="51">Ceuta</option>
+
+                </select>
+
+            </div>
+
+            <div class="botones">
+
+                <button id="btnMaritimos">
+                    <i class="fa-solid fa-anchor"></i>
+                    Buscar postes marítimos
+                </button>
+
+            </div>
+
+        </section>
+
+        <section id="vista-historico" class="vista">
+
+            <div class="selector bloque-selectores">
+
+                <div>
+
+                    <label for="provinciaHistorico">
+                        Provincia:
+                    </label>
+
+                    <select id="provinciaHistorico">
+
+                        <option value="28">Madrid</option>
+                        <option value="02">Albacete</option>
+                        <option value="03">Alicante</option>
+                        <option value="04">Almería</option>
+                        <option value="08">Barcelona</option>
+                        <option value="11">Cádiz</option>
+                        <option value="15">A Coruña</option>
+                        <option value="18">Granada</option>
+                        <option value="29">Málaga</option>
+                        <option value="30">Murcia</option>
+                        <option value="41">Sevilla</option>
+                        <option value="46">Valencia</option>
+                        <option value="50">Zaragoza</option>
+
+                    </select>
+
+                </div>
+
+                <div>
+
+                    <label for="productoHistorico">
+                        Carburante:
+                    </label>
+
+                    <select id="productoHistorico">
+
+                        <option value="1">Gasolina 95 E5</option>
+                        <option value="3">Gasolina 98 E5</option>
+                        <option value="4">Gasóleo A</option>
+                        <option value="5">Gasóleo Premium</option>
+                        <option value="17">GLP</option>
+
+                    </select>
+
+                </div>
+
+                <div>
+
+                    <label for="fechaHistorico">
+                        Día:
+                    </label>
+
+                    <input type="date" id="fechaHistorico">
+
+                </div>
+
+            </div>
+
+            <div class="botones">
+
+                <button id="btnHistorico">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    Buscar precios
+                </button>
+
+            </div>
+
+        </section>
+
+        <div id="estado"></div>
+
+        <div id="resultado"></div>
+
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>
